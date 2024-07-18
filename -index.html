@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="vieewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Keishu Takase">
+    <meta name="keywords" content="html, コンピューター, ">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>コンピューターリテラシー・課題</title>
+</head>
+
+<body>
+    <!-- <p>実装機能：操作説明</p> -->
+    <section class="container-head">
+
+        <div>難易度設定（</div>
+        <div><button type="button" onclick="difficulty(0)">かんたん</button></div>
+        <div><button type="button" onclick="difficulty(1)">ふつう</button></div>
+        <div><button type="button" onclick="difficulty(2)">むずかしい</button></div>
+        <div>）</div>
+        <div id="diffsets"> 難易度「かんたん」　　&</div>
+        <div id="charset"> キャラクター「人間」で</div>
+        <div><button type="button" onclick="gamestart()">ゲームスタート</button></div>
+        <div id="lifeCounter">❤️❤️❤️❤️❤️❤️ </div>
+        <div id="distanceCounter">現在の距離:0m</div>
+        <div><button type="button" onclick="resetbutton()">デフォオルトにリセット</button></div>
+
+    </section>
+
+    <h1 id="title">落とし物を回避しろ！！ </h1>
+
+    <section>
+        <h2 class="defaultToggled">🔽　固定ヘッダーの見方　🔽</h2>
+        <div>
+            <div>ヘッダーの画像↓</div>
+            <img src="img/UI.png" width="1300rem" height="40px">
+            <div class="container-descriptions">
+                <div> <!-- filling --> </div>
+                <div>
+                    ☝️ ①難易度を設定 ☝️
+                </div>
+                <div> <!-- filling --> </div>
+                <div>
+                    ☝️ ②難易度・キャラクター表示 ☝️
+                </div>
+                <div> <!-- filling --> </div>
+                <div>
+                    ☝️ ③スタートボタン
+                </div>
+                <div> <!-- filling --> </div>
+                <div>
+                    ☝️ ④ライフ・距離計
+                </div>
+                <div> <!-- filling --> </div>
+                <div>
+                    ☝️ ⑤リセットボタン
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="charSelectSection">
+        <h2 class="defaultToggled">🔽　遊び方・操作説明　🔽</h2>
+        <div>
+            <p class="sectionTitle">
+                ・一番上の段で「！」の警告がされるので、場所を覚えて最下段で確実に直撃を回避しよう。
+            </p>
+            <p class="sectionTitle">
+                ・本サイトでは独自のASDKOキーによる操作を行います。
+            </p>
+            <p class="sectionTitle">
+                ・キー左から順にゲーム内五つのレーンと連動していて、押したところにキャラクターが瞬間移動します。
+            </p>
+            <div class="containner-howToPlay">
+                <div>
+                    <p>⭐️Aキーを押した場合⭐️</p>
+                    <img src="./img/key: A.png" width="300" height="200">
+                </div>
+                <div>
+                    <p>⭐️Sキーを押した場合⭐️</p>
+                    <img src="./img/key: S.png" width="300" height="200">
+                </div>
+                <div>
+                    <p>⭐️Kキーを押した場合⭐️</p>
+                    <img src="./img/key: K.png" width="300" height="200">
+                </div>
+            </div>
+            <p class="sectionTitle">
+                ・ゲームの進行の例
+            </p>
+            <div class="containner-howToPlay">
+                <div>
+                    <p>①！が出現（左から２番目・最右列）</p>
+                    <img src="./img/howToPlay1.png" width="300px" height="200px">
+                </div>
+                <div>
+                    <p>②！の位置が下段に引き継がれます</p>
+                    <img src="./img/howToPlay2.png" width="300px" height="200px">
+                </div>
+                <div>
+                    <p>③場所を覚えて回避しよう</p>
+                    <img src="./img/howToPlay3.png" width="300px" height="200px">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>🔽　キャラクター選択　🔽</h2>
+        <div>
+            <div class="container-characterSelect">
+                <div id="characterImage">
+                    <img src="./img/char_human.png" width="300px" height="300px">
+                </div>
+            </div>
+
+            <p id="charName">キャラクター名：人間(中級者向け)
+            </p>
+            <p id="charDescription">キャラクター説明:ごく一般的な大学生。手銃で鳥を狙うのが最近のトレンド</p>
+            <p id="uniqueSkill">キャラ特性：❤️X6/最上段に鳩が出現</p>
+
+            <div>
+                <button type="button" onclick="Select(0)">占い師（初級）</button>
+                <button type="button" onclick="Select(1)">人間（中級者向け）</button>
+                <button type="button" onclick="Select(2)">ミイラ（上級者向け）</button>
+                <button type="button" onclick="Select(3)">家（上級者向け）</button>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <div class="playarea">
+
+
+        <div class="skyArea bird2 bird4"></div>
+        <div class="skyArea bird3 bird5"></div>
+        <div class="skyArea bird1 bird2"></div>
+        <div class="skyArea bird3 bird4"></div>
+        <div class="skyArea bird1 bird5"></div>
+
+        <div class="exclamation change2 change4"></div>
+        <div class="exclamation change3 change5"></div>
+        <div class="exclamation change1 change2"></div>
+        <div class="exclamation change3 change4"></div>
+        <div class="exclamation change1 change5"></div>
+
+        <div class="predictArea quartz2 quartz4"></div>
+        <div class="predictArea quartz3 quartz5"></div>
+        <div class="predictArea quartz1 quartz2"></div>
+        <div class="predictArea quartz3 quartz4"></div>
+        <div class="predictArea quartz1 quartz5"></div>
+
+        <div id="pressA" class="grass explode2 explode4"></div>
+        <div id="pressS" class="grass explode3 explode5"></div>
+        <div id="pressD" class="grass explode1 explode2 charLocation"> <img src="./img/char_human.png" height="150"
+                width="150"> </div>
+        <div id="pressK" class="grass explode3 explode4"></div>
+        <div id="pressO" class="grass explode1 explode5"></div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="./js/main.js"></script>
+
+
+
+</body>
+
+</html>
